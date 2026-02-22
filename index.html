@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Sistema de Escalas - IBA</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- LOGIN -->
+  <div id="loginContainer" class="center-box">
+    <h2>Ministério de Louvor</h2>
+    <p>Igreja Batista Aliança</p>
+
+    <input type="text" id="usuario" placeholder="Usuário">
+    <input type="password" id="senha" placeholder="Senha">
+    <button onclick="fazerLogin()">Entrar</button>
+  </div>
+
+  <!-- SISTEMA -->
+  <div id="sistemaContainer" style="display:none;">
+    <header>
+      <h1>Sistema de Escalas</h1>
+      <button onclick="logout()">Sair</button>
+    </header>
+
+    <p>Bem-vindo ao sistema.</p>
+  </div>
+
+  <script src="script.js"></script>
+
+  <script>
+    const usuarioCorreto = "admin";
+    const senhaCorreta = "1234";
+
+    function fazerLogin() {
+        const usuario = document.getElementById("usuario").value;
+        const senha = document.getElementById("senha").value;
+
+        if (usuario === usuarioCorreto && senha === senhaCorreta) {
+            window.location.href = "dashboard.html";
+        } else {
+            alert("Usuário ou senha incorretos!");
+        }
+    }
+</script>
+</body>
+</html>

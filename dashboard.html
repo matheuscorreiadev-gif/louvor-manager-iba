@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard - Ministério de Louvor</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="dashboard-container">
+    <h1>Painel de Escalas</h1>
+
+    <select id="mes">
+        <option value="janeiro">Janeiro</option>
+        <option value="fevereiro">Fevereiro</option>
+        <option value="marco">Março</option>
+    </select>
+
+    <textarea id="escala" placeholder="Digite a escala aqui..."></textarea>
+
+    <button onclick="salvarEscala()">Salvar Escala</button>
+
+    <div id="escala-salva"></div>
+
+    <button class="logout" onclick="logout()">Sair</button>
+
+    <a href="membros.html">
+    <button>Gerenciar Membros</button>
+
+    <a href="escala.html">
+        <button> Gerenciar Escala</button>
+</a>
+</div>
+
+<script>
+
+    function salvarEscala() {
+        const mes = document.getElementById("mes").value;
+        const texto = document.getElementById("escala").value;
+
+        localStorage.setItem(mes, texto);
+        mostrarEscala();
+    }
+
+    function mostrarEscala() {
+        const mes = document.getElementById("mes").value;
+        const escala = localStorage.getItem(mes);
+
+        const div = document.getElementById("escala-salva");
+
+        if (escala) {
+            div.innerHTML = "<h3>Escala Salva:</h3><p>" + escala + "</p>";
+        } else {
+            div.innerHTML = "<p>Nenhuma escala cadastrada para este mês.</p>";
+        }
+    }
+
+    document.getElementById("mes").addEventListener("change", mostrarEscala);
+
+    window.onload = mostrarEscala;
+
+    function logout() {
+        window.location.href = "index.html";
+    }
+
+</script>
+
+</body>
+</html>

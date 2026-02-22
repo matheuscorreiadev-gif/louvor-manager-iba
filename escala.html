@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Escala - Ministério de Louvor</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <h2>Escala - Ministério de Louvor</h2>
+
+    <form id="formEscala">
+      <label>Mês:</label>
+      <input type="month" id="mes" required>
+
+      <label>Data:</label>
+      <input type="date" id="data" required>
+
+      <label>Tipo de Culto:</label>
+      <select id="tipoCulto" required>
+        <option value="">Selecione</option>
+        <option value="Domingo Manhã">Domingo Manhã</option>
+        <option value="Domingo Noite">Domingo Noite</option>
+        <option value="Terça-feira">Terça-feira</option>
+        <option value="Quinta-feira">Quinta-feira</option>
+        <option value="Semana de Oração">Semana de Oração</option>
+      </select>
+<label>Membros:</label>
+<div id="membrosCheckbox"></div>
+      </select>
+
+      <button type="submit">Salvar Escala</button>
+    </form>
+
+    <hr>
+    
+    <label>Filtrar por Mês:</label>
+<input type="month" id="filtroMes">
+<button type="button" onclick="filtrarEscalas()">Filtrar</button>
+<button type="button" onclick="listarEscalas()">Mostrar Todas</button>
+
+
+    <h3>Escalas Cadastradas</h3>
+    <div id="listaEscalas"></div>
+
+    <br>
+    <a href="dashboard.html">Voltar ao Dashboard</a>
+  </div>
+
+  <script src="escala.js"></script>
+
+</body>
+</html>
